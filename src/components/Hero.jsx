@@ -111,7 +111,7 @@ const Hero = ({ onIntroComplete }) => {
                 }
                 transition={{ duration: 1, ease: "easeInOut" }}
             >
-                Jay Patel CG
+                Jay Patel
             </motion.div>
 
             {/* Main Hero Content - Only visible after intro starts completing */}
