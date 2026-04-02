@@ -10,6 +10,7 @@ const certificates = [
         tag: 'Featured',
         id: 'js-01',
         icon: Code2,
+        image: '/javascript-cert.png',
         link: 'https://www.sololearn.com/certificates/CC-TPGJJYAR',
         description: 'Mastery of core JavaScript concepts, including DOM manipulation, asynchronous programming, and ES6+ syntax.',
         color: '#F7DF1E', // JS Yellow
@@ -21,9 +22,22 @@ const certificates = [
         tag: 'Professional',
         id: 'web-02',
         icon: Globe,
+        image: '/web-dev-cert.jpg',
         link: 'https://www.sololearn.com/certificates/CC-DOSH4P02',
         description: 'Comprehensive certification in modern web standards, HTML5, CSS3, and responsive design architectures.',
         color: '#00AEEF', // Theme Blue
+    },
+    { 
+        title: 'ArtPark CodeForge Hackathon', 
+        issuer: 'IISc, Bangalore', 
+        date: 'March 2026', 
+        tag: 'Competition',
+        id: 'hack-03',
+        icon: ShieldCheck,
+        image: '/hackathon-cert.jpg',
+        link: 'https://unstop.com/certificate-preview/5f7f4690-7bc9-42b0-8c7b-af260211347e',
+        description: 'Participated in the Build & Submit - Prototype Development Round of ArtPark CodeForge Hackathon organized by IISc Bangalore.',
+        color: '#FF00A2', // Accent Pink
     },
 ];
 
@@ -140,7 +154,7 @@ const Certificates = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-7xl font-black text-white"
                     >
-                        Credential <span className="text-[#00AEEF]">Showcase</span>
+                        Certificates <span className="text-[#00AEEF]">Showcase</span>
                     </motion.h2>
                 </div>
 
@@ -207,17 +221,32 @@ const Certificates = () => {
                                     </div>
 
                                     {/* Visual Panel */}
-                                    <div className="lg:w-[45%] bg-[#080808] relative flex items-center justify-center p-12 overflow-hidden">
+                                    <div className="lg:w-[45%] bg-[#080808] relative flex items-center justify-center p-6 overflow-hidden">
                                         <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/10 to-transparent" />
                                         <motion.div 
-                                            initial={{ rotate: 12, scale: 0.8 }}
-                                            animate={{ rotate: 0, scale: 1 }}
-                                            className="relative z-10 p-16 bg-black/40 backdrop-blur-3xl rounded-[40px] border border-white/5 shadow-2xl"
+                                            initial={{ rotate: 12, scale: 0.8, opacity: 0 }}
+                                            animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                                            key={currentIndex}
+                                            className="relative z-10 w-full h-full flex items-center justify-center"
                                         >
-                                            {(() => {
-                                                const FeaturedIcon = certificates[currentIndex].icon;
-                                                return <FeaturedIcon size={180} strokeWidth={0.5} className="text-[#00AEEF]" />;
-                                            })()}
+                                            <div className="relative group/cert group p-4 bg-black/40 backdrop-blur-3xl rounded-[20px] border border-white/5 shadow-2xl overflow-hidden max-w-full max-h-full">
+                                                <img 
+                                                    src={certificates[currentIndex].image} 
+                                                    alt={certificates[currentIndex].title}
+                                                    className="max-w-full max-h-[400px] object-contain rounded-lg shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                                                    onError={(e) => {
+                                                        // Fallback to icon if image fails to load
+                                                        e.target.style.display = 'none';
+                                                        e.target.nextSibling.style.display = 'block';
+                                                    }}
+                                                />
+                                                <div style={{ display: 'none' }} className="flex items-center justify-center p-20">
+                                                    {(() => {
+                                                        const FeaturedIcon = certificates[currentIndex].icon;
+                                                        return <FeaturedIcon size={160} strokeWidth={0.5} className="text-[#00AEEF]" />;
+                                                    })()}
+                                                </div>
+                                            </div>
                                         </motion.div>
                                         
                                         {/* Background Decoration */}

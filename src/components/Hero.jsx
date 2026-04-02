@@ -123,7 +123,7 @@ const Hero = ({ onIntroComplete }) => {
             >
 
                 {/* Left Side: Text Content */}
-                <div className="space-y-6">
+                <div className="space-y-6 md:pl-12 lg:pl-20 w-full text-left">
                     <h2 className="text-2xl md:text-3xl font-light text-gray-300 flex items-center gap-3">
                         Heyy <motion.span
                             animate={{ rotate: [0, 20, -20, 0] }}
@@ -178,7 +178,7 @@ const Hero = ({ onIntroComplete }) => {
                 </div>
 
                 {/* Right Side: Profile Image with Parallax & Depth */}
-                <div className="relative flex justify-center">
+                <div className="relative flex justify-center md:justify-end lg:pr-12">
                     <div className="relative w-72 h-72 md:w-96 md:h-96 group">
 
                         {/* 1. Backdrop Square (Depth & Rotation) */}

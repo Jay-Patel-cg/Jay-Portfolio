@@ -158,6 +158,18 @@ const ProjectCard = ({ project, index }) => {
                         <span>Live</span>
                         <ExternalLink size={16} />
                     </a>
+                    
+                    {project.youtube && (
+                        <a
+                            href={project.youtube}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="col-span-2 flex items-center justify-center gap-2 py-2 rounded-xl border border-red-500/30 text-white hover:bg-red-500 hover:text-white transition-all duration-300 font-medium text-sm group/yt"
+                        >
+                            <Youtube size={16} className="text-red-500 group-hover/yt:text-white transition-colors" />
+                            <span>YouTube Demo</span>
+                        </a>
+                    )}
                 </div>
             </div>
 
@@ -170,7 +182,7 @@ const ProjectCard = ({ project, index }) => {
 const Projects = () => {
     return (
         <section id="projects" className="min-h-screen py-20 relative bg-black overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-12 md:px-24 lg:px-32 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
