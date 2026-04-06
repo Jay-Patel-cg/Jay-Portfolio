@@ -1,16 +1,109 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://jay-patel-portfolio-cg.netlify.app/
 
-Currently, two official plugins are available:
+# 🌐 Jay Portfolio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern and responsive personal portfolio website showcasing my skills, projects, and experience as a developer. This portfolio represents my journey, technical expertise, and passion for building impactful web applications.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🎨 Clean and modern UI  
+- 📱 Fully responsive design (Mobile + Desktop)  
+- 🧑‍💻 About Me section  
+- 🛠️ Skills & Tech Stack showcase  
+- 📂 Projects showcase with details  
+- 📞 Contact section  
+- ⚡ Fast and optimized performance  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🏗️ Tech Stack
+
+- HTML5  
+- CSS3  
+- JavaScript  
+- (Add React / Tailwind / etc. if used)
+
+---
+
+## 📁 Project Structure
+
+```bash
+Jay-Portfolio/
+│
+├── assets/            # Images, icons, etc.
+├── css/               # Stylesheets
+├── js/                # JavaScript files
+├── index.html         # Main file
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Jay-Patel-cg/Jay-Portfolio.git
+cd Jay-Portfolio
+```
+
+### 2. Run the project
+
+Simply open `index.html` in your browser
+
+---
+
+## 🌍 Live Demo
+
+(Add your deployed link here, e.g. GitHub Pages / Vercel)
+
+---
+
+## 🧠 What I Learned
+
+- Building responsive layouts  
+- Structuring clean frontend code  
+- Improving UI/UX design  
+- Showcasing projects professionally  
+
+---
+
+## 🔄 Future Improvements
+
+- 🌙 Dark mode  
+- ✨ Animations and transitions  
+- 📊 More interactive project showcase  
+- 📩 Working contact form (backend integration)  
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository  
+2. Create a new branch  
+3. Make your changes  
+4. Submit a pull request  
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Jay Patel**
+
+- GitHub: https://github.com/Jay-Patel-cg  
+- Portfolio: (Add your live link here)  
+
+---
+
+⭐ If you like this project, give it a star!
