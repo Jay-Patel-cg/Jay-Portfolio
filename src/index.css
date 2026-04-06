@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html, body {
     @apply scroll-pt-[100px] scroll-smooth;
   }
   body {
     @apply bg-black text-white antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
   }
 }

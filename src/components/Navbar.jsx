@@ -66,31 +66,37 @@ const Navbar = () => {
     };
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 50);
 
-            // Robust section tracking using bounding box
-            const midPoint = window.innerHeight / 2.5;
-            let current = 'home';
+                    // Robust section tracking using bounding box
+                    const midPoint = window.innerHeight / 2.5;
+                    let current = 'home';
 
-            for (const item of navItems) {
-                const id = item.href.replace('#', '');
-                const element = document.getElementById(id);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    // If the midPoint of the screen is within the section's bounds
-                    if (rect.top <= midPoint && rect.bottom >= midPoint) {
-                        current = id;
-                        break;
+                    for (const item of navItems) {
+                        const id = item.href.replace('#', '');
+                        const element = document.getElementById(id);
+                        if (element) {
+                            const rect = element.getBoundingClientRect();
+                            if (rect.top <= midPoint && rect.bottom >= midPoint) {
+                                current = id;
+                                break;
+                            }
+                        }
                     }
-                }
+                    
+                    setActiveSection(current);
+                    ticking = false;
+                });
+                ticking = true;
             }
-            
-            setActiveSection(current);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        // Run once on mount to set initial state
         handleScroll();
         
         return () => window.removeEventListener('scroll', handleScroll);

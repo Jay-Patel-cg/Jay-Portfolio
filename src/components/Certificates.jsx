@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Globe, ExternalLink, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import MacbookMockup from './MacbookMockup';
 
 const certificates = [
     { 
@@ -220,37 +221,41 @@ const Certificates = () => {
                                         </motion.a>
                                     </div>
 
-                                    {/* Visual Panel */}
-                                    <div className="lg:w-[45%] bg-[#080808] relative flex items-center justify-center p-6 overflow-hidden">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/10 to-transparent" />
-                                        <motion.div 
-                                            initial={{ rotate: 12, scale: 0.8, opacity: 0 }}
-                                            animate={{ rotate: 0, scale: 1, opacity: 1 }}
-                                            key={currentIndex}
-                                            className="relative z-10 w-full h-full flex items-center justify-center"
-                                        >
-                                            <div className="relative group/cert group p-4 bg-black/40 backdrop-blur-3xl rounded-[20px] border border-white/5 shadow-2xl overflow-hidden max-w-full max-h-full">
-                                                <img 
-                                                    src={certificates[currentIndex].image} 
-                                                    alt={certificates[currentIndex].title}
-                                                    className="max-w-full max-h-[400px] object-contain rounded-lg shadow-2xl transition-transform duration-500 group-hover:scale-105"
-                                                    onError={(e) => {
-                                                        // Fallback to icon if image fails to load
-                                                        e.target.style.display = 'none';
-                                                        e.target.nextSibling.style.display = 'block';
-                                                    }}
-                                                />
-                                                <div style={{ display: 'none' }} className="flex items-center justify-center p-20">
-                                                    {(() => {
-                                                        const FeaturedIcon = certificates[currentIndex].icon;
-                                                        return <FeaturedIcon size={160} strokeWidth={0.5} className="text-[#00AEEF]" />;
-                                                    })()}
-                                                </div>
-                                            </div>
-                                        </motion.div>
+                                    {/* Visual Panel - Macbook Mockup Container */}
+                                    <div className="lg:w-[55%] bg-[#080808] relative flex items-center justify-center p-6 overflow-hidden">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/5 to-transparent" />
+                                        
+                                        <MacbookMockup>
+                                            <AnimatePresence mode="wait">
+                                                <motion.div 
+                                                    key={currentIndex}
+                                                    initial={{ opacity: 0, scale: 1.1, blur: '10px' }}
+                                                    animate={{ opacity: 1, scale: 1, blur: '0px' }}
+                                                    exit={{ opacity: 0, scale: 0.9, blur: '10px' }}
+                                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                                    className="w-full h-full bg-[#050505] flex items-center justify-center p-2"
+                                                >
+                                                    <img 
+                                                        src={certificates[currentIndex].image} 
+                                                        alt={certificates[currentIndex].title}
+                                                        className="w-full h-full object-contain rounded-sm shadow-inner transition-all duration-700 hover:brightness-110"
+                                                        onError={(e) => {
+                                                            e.target.style.display = 'none';
+                                                            e.target.nextSibling.style.display = 'flex';
+                                                        }}
+                                                    />
+                                                    <div style={{ display: 'none' }} className="flex items-center justify-center w-full h-full">
+                                                        {(() => {
+                                                            const FallbackIcon = certificates[currentIndex].icon;
+                                                            return <FallbackIcon size={120} strokeWidth={0.5} className="text-[#00AEEF]/30" />;
+                                                        })()}
+                                                    </div>
+                                                </motion.div>
+                                            </AnimatePresence>
+                                        </MacbookMockup>
                                         
                                         {/* Background Decoration */}
-                                        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#00AEEF]/20 blur-[120px] rounded-full pointer-events-none" />
+                                        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#00AEEF]/10 blur-[120px] rounded-full pointer-events-none" />
                                     </div>
                                 </div>
                             </motion.div>
