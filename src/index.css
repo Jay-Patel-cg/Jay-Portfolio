@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply scroll-pt-[100px] scroll-smooth;
+  }
   body {
     @apply bg-black text-white antialiased overflow-x-hidden;
   }
