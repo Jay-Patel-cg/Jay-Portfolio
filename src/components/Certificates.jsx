@@ -155,7 +155,7 @@ const Certificates = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-7xl font-black text-white"
                     >
-                        Certificates <span className="text-[#00AEEF]">Showcase.......</span>
+                        Certificates <span className="text-[#00AEEF]">Showcase</span>
                     </motion.h2>
                 </div>
 
