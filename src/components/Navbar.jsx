@@ -6,10 +6,12 @@ const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Figma', href: '#figma' },
     { name: 'Certificates', href: '#certificates' },
     { name: 'Hackathon', href: '#hackathon' },
     { name: 'Contact', href: '#contact' },
 ];
+
 
 const NavLink = ({ item, isActive, activeSection, scrollToTop }) => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

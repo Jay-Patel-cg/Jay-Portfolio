@@ -5,14 +5,17 @@ import { useState } from 'react';
 const projectsData = [
     { 
         title: 'Gen-Z', 
+        category: 'Frontend',
         desc: 'A modern landing page designed with Tailwind CSS focus.', 
         tech: ['Tailwind CSS', 'React', 'Vite'],
         image: '/project-1.png',
         github: 'https://github.com/Jay-Patel-cg/Tailwind-Pratice',
-        live: 'https://agent-69bbc502a122f1852ae9f1c8--gen-z-agency.netlify.app/'
+        live: 'https://agent-69bbc502a122f1852ae9f1c8--gen-z-agency.netlify.app/',
+        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
     },
     { 
         title: 'Balenciaga UI Clone', 
+        category: 'Clones',
         desc: 'A premium UI clone of the Balenciaga website.', 
         tech: ['React', 'Framer Motion', 'Tailwind'],
         image: '/project-2.png',
@@ -22,6 +25,7 @@ const projectsData = [
     },
     { 
         title: 'Feel Flow (Transvora UI)', 
+        category: 'Full Stack',
         desc: 'Fleet intelligence platform for smarter driving.', 
         tech: ['Odoo', 'React', 'Node.js', 'Leaflet'],
         image: '/project-3.png',
@@ -31,27 +35,33 @@ const projectsData = [
     },
     { 
         title: 'Color Guessing Game', 
+        category: 'Games',
         desc: 'An interactive game to test your color perception.', 
         tech: ['HTML', 'CSS', 'JavaScript'],
         image: '/project-4.png',
         github: 'https://github.com/Jay-Patel-cg/Games/tree/main/Color%20Guessing%20Game',
-        live: 'https://reliable-custard-6e6b00.netlify.app/'
+        live: 'https://reliable-custard-6e6b00.netlify.app/',
+        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
     },
     { 
         title: 'Click Counter Game', 
+        category: 'Games',
         desc: 'Test your clicking speed in this fast-paced game.', 
         tech: ['React', 'CSS Animations'],
         image: '/project-5.png',
         github: 'https://github.com/Jay-Patel-cg/Games/tree/main/ClickCounter',
-        live: 'https://fabulous-fox-f57366.netlify.app/'
+        live: 'https://fabulous-fox-f57366.netlify.app/',
+        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
     },
     { 
         title: 'Whack A Mole', 
+        category: 'Games',
         desc: 'Classic Whack-a-Mole game with a modern touch.', 
         tech: ['JavaScript', 'CSS', 'Game Logic'],
         image: '/project-6.png',
         github: 'https://github.com/Jay-Patel-cg/Games/tree/main/Whack-a-Mole',
-        live: 'https://shimmering-eclair-620bbc.netlify.app/'
+        live: 'https://shimmering-eclair-620bbc.netlify.app/',
+        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
     },
 ];
 
@@ -72,7 +82,15 @@ const ProjectCard = ({ project, index }) => {
             }}
             className="group relative bg-[#111] rounded-[20px] overflow-hidden border border-white/5 shadow-xl hover:shadow-[#00AEEF]/20 hover:border-[#00AEEF]/50 transition-all duration-500 flex flex-col h-full"
         >
+            {/* Category Badge */}
+            <div className="absolute top-4 right-4 z-30">
+                <span className="px-3 py-1 bg-[#00AEEF]/20 backdrop-blur-md border border-[#00AEEF]/30 rounded-full text-[10px] font-bold text-[#00AEEF] uppercase tracking-wider">
+                    {project.category}
+                </span>
+            </div>
+
             {/* Thumbnail Section */}
+
             <div 
                 className="relative h-64 overflow-hidden cursor-pointer bg-gray-900"
                 onClick={() => window.open(project.live, '_blank')}
