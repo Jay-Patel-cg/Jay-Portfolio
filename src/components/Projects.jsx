@@ -104,7 +104,7 @@ const ProjectCard = ({ project, index }) => {
                 
                 <img
                     src={hasError ? '/project-thumb.png' : project.image}
-                    alt={project.title}
+                    alt={`${project.title} - Project by Jay Patel`}
                     loading="lazy"
                     onLoad={() => setImageLoaded(true)}
                     onError={() => {

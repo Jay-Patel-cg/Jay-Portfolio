@@ -5,7 +5,7 @@ import { socialLinks } from '../data/socialLinks';
 const Footer = () => {
     return (
         <footer className="bg-black py-12 border-t border-gray-900 text-center relative z-10">
-            <div className="flex justify-center space-x-6 mb-8">
+            <div className="flex justify-center space-x-6 mb-6">
                 {socialLinks.map((link) => (
                     <motion.a
                         key={link.name}
@@ -15,16 +15,17 @@ const Footer = () => {
                         whileHover={{ y: -5, color: link.color }}
                         className="text-gray-500 hover:text-white transition-colors"
                         title={link.name}
+                        aria-label={`Jay Patel on ${link.name}`}
                     >
                         <link.icon size={20} />
                     </motion.a>
                 ))}
             </div>
-            <p className="text-gray-500 flex items-center justify-center gap-2">
-                Made with <Heart size={16} className="text-red-500 fill-red-500" /> by Jay Patel
+            <p className="text-gray-400 font-medium flex items-center justify-center gap-2">
+                Designed & Built with <Heart size={16} className="text-red-500 fill-red-500" /> by <span className="text-[#00AEEF] font-bold">Jay Patel</span>
             </p>
-            <p className="text-gray-600 text-sm mt-2">
-                &copy; {new Date().getFullYear()} All rights reserved.
+            <p className="text-gray-600 text-xs mt-2">
+                Jay Patel | Software Developer Portfolio &copy; {new Date().getFullYear()} All rights reserved.
             </p>
         </footer>
     );

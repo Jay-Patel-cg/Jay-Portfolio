@@ -7,6 +7,7 @@ import FigmaDesigns from './components/FigmaDesigns';
 import Certificates from './components/Certificates';
 import Hackathon from './components/Hackathon';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -17,13 +18,13 @@ function App() {
 
   return (
     <div className="bg-black min-h-screen text-white overflow-hidden">
-      {/* Navbar appears only after intro is complete */}
+      {/* Navbar appears after intro starts completing */}
       {introComplete && <Navbar />}
 
       <main>
         <Hero onIntroComplete={handleIntroComplete} />
 
-        {/* Sections fade in as user scrolls (handled by their own viewport animations) */}
+        {/* Portfolio Sections */}
         {introComplete && (
           <>
             <Skills />
@@ -32,7 +33,7 @@ function App() {
             <Certificates />
             <Hackathon />
             <Contact />
-            {/* <Footer /> */}
+            <Footer />
           </>
         )}
       </main>
@@ -41,4 +42,3 @@ function App() {
 }
 
 export default App;
-

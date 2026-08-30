@@ -199,7 +199,7 @@ const Hero = ({ onIntroComplete }) => {
                         <div className="relative h-full w-full bg-black rounded-[2.5rem] overflow-hidden border-2 border-gray-800 z-10">
                             <img
                                 src="https://rubber-gold-91bco2ahm3.edgeone.app/ChatGPT%20Image%20Jan%201,%202026,%2002_17_48%20PM.png"
-                                alt="Jay Patel"
+                                alt="Jay Patel - Software Developer Portfolio"
                                 className="w-full h-full object-cover object-top"
                             />
                         </div>
