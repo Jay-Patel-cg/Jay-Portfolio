@@ -1,32 +1,44 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Globe, ExternalLink, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Code2, Globe, ExternalLink, ShieldCheck, ChevronLeft, ChevronRight, Trophy, Award } from 'lucide-react';
 import MacbookMockup from './MacbookMockup';
 
 const certificates = [
     { 
-        title: 'Introduction to JavaScript', 
-        issuer: 'SoloLearn', 
-        date: 'March 2026', 
+        title: 'Tic Tech Toe \'26', 
+        issuer: 'IEEE SB DAIICT', 
+        date: 'April 2026', 
         tag: 'Featured',
-        id: 'js-01',
-        icon: Code2,
-        image: '/javascript-cert.png',
-        link: 'https://www.sololearn.com/certificates/CC-TPGJJYAR',
-        description: 'Mastery of core JavaScript concepts, including DOM manipulation, asynchronous programming, and ES6+ syntax.',
-        color: '#F7DF1E', // JS Yellow
+        id: 'tictechtoe-06',
+        icon: Trophy,
+        image: '/tic-tech-toe-cert.jpg',
+        link: '/tic-tech-toe-cert.jpg',
+        description: 'Valuable participation certificate at Tic Tech Toe \'26 organized by IEEE Student Branch DAIICT at Dhirubhai Ambani University.',
+        color: '#8B5CF6',
     },
     { 
-        title: 'Web Development', 
-        issuer: 'SoloLearn', 
-        date: 'March 2026', 
-        tag: 'Professional',
-        id: 'web-02',
-        icon: Globe,
-        image: '/web-dev-cert.jpg',
-        link: 'https://www.sololearn.com/certificates/CC-DOSH4P02',
-        description: 'Comprehensive certification in modern web standards, HTML5, CSS3, and responsive design architectures.',
-        color: '#00AEEF', // Theme Blue
+        title: 'CodingGita HackSprint \'26', 
+        issuer: 'CodingGita (GU)', 
+        date: 'July 2026', 
+        tag: 'Hackathon',
+        id: 'hacksprint-04',
+        icon: Award,
+        image: '/codinggita-hacksprint-cert.jpg',
+        link: '/codinggita-hacksprint-cert.jpg',
+        description: 'Participation certificate for showcasing skills, creativity, and innovation in CodingGita HackSprint \'26 at Swaminarayan University.',
+        color: '#F7B500',
+    },
+    { 
+        title: 'Craftathon 36-Hour Hackathon', 
+        issuer: 'Gandhinagar University', 
+        date: 'April 2026', 
+        tag: 'Hackathon',
+        id: 'craftathon-05',
+        icon: Trophy,
+        image: '/craftathon-cert.jpg',
+        link: '/craftathon-cert.jpg',
+        description: 'Participation certificate for Team CraftCore in CRAFTATHON, a 36-hour hackathon organized at Gandhinagar University with IEEE Computer Society.',
+        color: '#00AEEF',
     },
     { 
         title: 'ArtPark CodeForge Hackathon', 
@@ -38,7 +50,31 @@ const certificates = [
         image: '/hackathon-cert.jpg',
         link: 'https://unstop.com/certificate-preview/5f7f4690-7bc9-42b0-8c7b-af260211347e',
         description: 'Participated in the Build & Submit - Prototype Development Round of ArtPark CodeForge Hackathon organized by IISc Bangalore.',
-        color: '#FF00A2', // Accent Pink
+        color: '#FF00A2',
+    },
+    { 
+        title: 'Introduction to JavaScript', 
+        issuer: 'SoloLearn', 
+        date: 'March 2026', 
+        tag: 'Professional',
+        id: 'js-01',
+        icon: Code2,
+        image: '/javascript-cert.png',
+        link: 'https://www.sololearn.com/certificates/CC-TPGJJYAR',
+        description: 'Mastery of core JavaScript concepts, including DOM manipulation, asynchronous programming, and ES6+ syntax.',
+        color: '#F7DF1E',
+    },
+    { 
+        title: 'Web Development', 
+        issuer: 'SoloLearn', 
+        date: 'March 2026', 
+        tag: 'Professional',
+        id: 'web-02',
+        icon: Globe,
+        image: '/web-dev-cert.jpg',
+        link: 'https://www.sololearn.com/certificates/CC-DOSH4P02',
+        description: 'Comprehensive certification in modern web standards, HTML5, CSS3, and responsive design architectures.',
+        color: '#00AEEF',
     },
 ];
 

@@ -1,4 +1,5 @@
 import { Github, Linkedin, Twitter, Youtube, Code, FileText } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 
 export const socialLinks = [
     {
@@ -16,31 +17,38 @@ export const socialLinks = [
         hoverRotate: -10
     },
     {
+        name: 'WhatsApp',
+        href: 'https://wa.me/918140504496?text=Hello!',
+        icon: SiWhatsapp,
+        color: '#25D366',
+        hoverRotate: 10
+    },
+    {
         name: 'Twitter',
         href: 'https://x.com/JayPatel24504',
         icon: Twitter,
         color: '#00AEEF',
-        hoverRotate: 10
+        hoverRotate: -10
     },
     {
         name: 'LeetCode',
         href: 'https://leetcode.com/u/JayPatel2904/',
         icon: Code,
         color: '#00AEEF',
-        hoverRotate: -10
+        hoverRotate: 10
     },
     {
         name: 'YouTube',
         href: 'https://www.youtube.com/@JayPatel-j5e9n',
         icon: Youtube,
         color: '#00AEEF',
-        hoverRotate: 10
+        hoverRotate: -10
     },
     {
         name: 'Resume',
-        href: 'https://drive.google.com/file/d/1ZgXqEv_n9TzT97vnkEHamUZdh1z9Wamj/view?usp=sharing',
+        href: 'https://drive.google.com/file/d/1uvM1HbrFBXrMjxNOVmPvxI1RnRrcj__A/view?usp=sharing',
         icon: FileText,
         color: '#00AEEF',
-        hoverRotate: -10
+        hoverRotate: 10
     }
 ];

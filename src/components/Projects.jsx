@@ -10,18 +10,18 @@ const projectsData = [
         tech: ['Tailwind CSS', 'React', 'Vite'],
         image: '/project-1.png',
         github: 'https://github.com/Jay-Patel-cg/Tailwind-Pratice',
-        live: 'https://agent-69bbc502a122f1852ae9f1c8--gen-z-agency.netlify.app/',
+        live: 'https://tailwind-pratice-gmkm.vercel.app/',
         youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
     },
     { 
-        title: 'Balenciaga UI Clone', 
-        category: 'Clones',
-        desc: 'A premium UI clone of the Balenciaga website.', 
-        tech: ['React', 'Framer Motion', 'Tailwind'],
-        image: '/project-2.png',
-        github: 'https://github.com/Jay-Patel-cg/WebsiteMakingForPractise/tree/main/web-1',
-        live: 'https://jay-patel-balenciaga.netlify.app/',
-        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
+        title: 'KrishiSetu (CraftCore)', 
+        category: 'AgriTech AI',
+        desc: 'AI-powered smart farming & soil intelligence platform with real-time crop health monitoring, market intelligence dashboard, and yield profit forecasting.', 
+        tech: ['React', 'Tailwind CSS', 'AgriTech AI', 'Vite'],
+        image: '/craftcore-1.png',
+        github: 'https://github.com/AnshPatel191207/CraftCore',
+        live: 'https://craft-core-sage.vercel.app/',
+        youtube: 'https://www.youtube.com/@JayPatel-j5e9n'
     },
     { 
         title: 'Feel Flow (Transvora UI)', 
@@ -34,34 +34,34 @@ const projectsData = [
         youtube: 'https://youtu.be/utgCTkVCNMI?si=g8XwY-7SFgOYR16H'
     },
     { 
-        title: 'Color Guessing Game', 
-        category: 'Games',
-        desc: 'An interactive game to test your color perception.', 
-        tech: ['HTML', 'CSS', 'JavaScript'],
-        image: '/project-4.png',
-        github: 'https://github.com/Jay-Patel-cg/Games/tree/main/Color%20Guessing%20Game',
-        live: 'https://reliable-custard-6e6b00.netlify.app/',
-        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
+        title: 'adPrecision', 
+        category: 'Ad Analytics',
+        desc: 'High-precision ad intelligence & creative upload suite featuring campaign ROAS analytics, active spend tracking, and multi-format video distribution.', 
+        tech: ['React', 'Vite', 'Tailwind CSS', 'Analytics'],
+        image: '/adprecision-1.png',
+        github: 'https://github.com/Jay-Patel-cg/adPrecision',
+        live: 'https://adprecision-app.netlify.app/',
+        youtube: 'https://www.youtube.com/@JayPatel-j5e9n'
     },
     { 
-        title: 'Click Counter Game', 
-        category: 'Games',
-        desc: 'Test your clicking speed in this fast-paced game.', 
-        tech: ['React', 'CSS Animations'],
-        image: '/project-5.png',
-        github: 'https://github.com/Jay-Patel-cg/Games/tree/main/ClickCounter',
-        live: 'https://fabulous-fox-f57366.netlify.app/',
-        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
+        title: 'Musafir (AI Travel Planner)', 
+        category: 'AI Travel',
+        desc: 'AI-powered travel planning platform built for Odoo x LD Hackathon, featuring intelligent trip itinerary generation, destination discovery, and user authentication.', 
+        tech: ['React', 'Vite', 'Tailwind CSS', 'AI Travel API'],
+        image: '/musafir-2.png',
+        github: 'https://github.com/Jay-Patel-cg/OddoXLD-Hackathon-',
+        live: 'https://oddo-xld-hackathon-xr63.vercel.app/',
+        youtube: 'https://www.youtube.com/@JayPatel-j5e9n'
     },
     { 
-        title: 'Whack A Mole', 
-        category: 'Games',
-        desc: 'Classic Whack-a-Mole game with a modern touch.', 
-        tech: ['JavaScript', 'CSS', 'Game Logic'],
-        image: '/project-6.png',
-        github: 'https://github.com/Jay-Patel-cg/Games/tree/main/Whack-a-Mole',
-        live: 'https://shimmering-eclair-620bbc.netlify.app/',
-        youtube: 'https://youtu.be/pGUj6V39Ivk?si=jsQt7tQMW-o2oUln'
+        title: 'Quantum AI (Page Intelligence)', 
+        category: 'AI Web Suite',
+        desc: 'Next-gen web intelligence workspace featuring AI page summarization, smart reader narration, voice assistant conversation, code lens analysis, and translation.', 
+        tech: ['React', 'Vite', 'Tailwind CSS', 'AI Engine'],
+        image: '/quantum-1.png',
+        github: 'https://github.com/ShahArpanPratikkumar/quantum_coders',
+        live: 'https://quantum-coders-two.vercel.app/',
+        youtube: 'https://www.youtube.com/@JayPatel-j5e9n'
     },
 ];
 

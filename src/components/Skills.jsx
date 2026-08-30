@@ -1,28 +1,45 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+    SiHtml5,
+    SiCss,
+    SiJavascript,
+    SiReact,
+    SiTailwindcss,
+    SiFigma,
+    SiNodedotjs,
+    SiExpress,
+    SiMongodb,
+    SiGit,
+    SiGithub,
+    SiPostman,
+    SiNetlify,
+    SiVercel
+} from 'react-icons/si';
+import { TbApi, TbMessages } from 'react-icons/tb';
 
 const skillsData = {
     frontend: [
-        { name: 'HTML', icon: '🌐' },
-        { name: 'CSS', icon: '🎨' },
-        { name: 'JavaScript', icon: '📜' },
-        { name: 'React', icon: '⚛️' },
-        { name: 'Tailwind CSS', icon: '💅' },
-        { name: 'UI/UX (Figma)', icon: '🖌️' },
+        { name: 'HTML', icon: SiHtml5, color: '#E34F26' },
+        { name: 'CSS', icon: SiCss, color: '#1572B6' },
+        { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+        { name: 'React', icon: SiReact, color: '#61DAFB' },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+        { name: 'UI/UX (Figma)', icon: SiFigma, color: '#F24E1E' },
     ],
     backend: [
-        { name: 'Node.js', icon: '🟢' },
-        { name: 'Express.js', icon: '🚂' },
-        { name: 'MongoDB', icon: '🍃' },
-        { name: 'REST API', icon: '🔌' },
+        { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+        { name: 'Express.js', icon: SiExpress, color: '#E0E0E0' },
+        { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+        { name: 'REST API', icon: TbApi, color: '#00AEEF' },
     ],
     other: [
-        { name: 'Git', icon: '🌿' },
-        { name: 'GitHub', icon: '🐙' },
-        { name: 'Postman', icon: '🚀' },
-        { name: 'Netlify', icon: '☁️' },
-        { name: 'Vercel', icon: '▲' },
-        { name: 'Communication', icon: '🗣️' },
+        { name: 'Git', icon: SiGit, color: '#F05032' },
+        { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
+        { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+        { name: 'Netlify', icon: SiNetlify, color: '#00C7B7' },
+        { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
+        { name: 'Communication', icon: TbMessages, color: '#00AEEF' },
     ],
 };
 
@@ -139,21 +156,27 @@ const Skills = () => {
                                         }}
                                     >
                                         {/* Duplicate list 3 times to ensure smooth infinite scroll */}
-                                        {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
-                                            <motion.div
-                                                key={`${skill.name}-${index}`}
-                                                whileHover={{
-                                                    scale: 1.1,
-                                                    backgroundColor: "rgba(0, 174, 239, 0.2)",
-                                                    borderColor: "#00AEEF",
-                                                    boxShadow: "0 0 15px rgba(0, 174, 239, 0.4)"
-                                                }}
-                                                className="flex items-center gap-3 px-6 py-3 bg-[#111] border border-gray-800 rounded-full cursor-pointer transition-all min-w-max"
-                                            >
-                                                <span className="text-2xl">{skill.icon}</span>
-                                                <span className="text-sm font-bold text-gray-300 whitespace-nowrap">{skill.name}</span>
-                                            </motion.div>
-                                        ))}
+                                        {[...skills, ...skills, ...skills, ...skills].map((skill, index) => {
+                                            const IconComponent = skill.icon;
+                                            return (
+                                                <motion.div
+                                                    key={`${skill.name}-${index}`}
+                                                    whileHover={{
+                                                        scale: 1.1,
+                                                        backgroundColor: "rgba(0, 174, 239, 0.2)",
+                                                        borderColor: "#00AEEF",
+                                                        boxShadow: "0 0 15px rgba(0, 174, 239, 0.4)"
+                                                    }}
+                                                    className="flex items-center gap-3 px-6 py-3 bg-[#111] border border-gray-800 rounded-full cursor-pointer transition-all min-w-max group"
+                                                >
+                                                    <IconComponent
+                                                        className="text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
+                                                        style={{ color: skill.color }}
+                                                    />
+                                                    <span className="text-sm font-bold text-gray-300 whitespace-nowrap">{skill.name}</span>
+                                                </motion.div>
+                                            );
+                                        })}
                                     </motion.div>
                                 </div>
                             </div>

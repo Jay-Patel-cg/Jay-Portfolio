@@ -164,7 +164,7 @@ const Hero = ({ onIntroComplete }) => {
                         </div>
 
                         <motion.a
-                            href="https://drive.google.com/file/d/1ZgXqEv_n9TzT97vnkEHamUZdh1z9Wamj/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1uvM1HbrFBXrMjxNOVmPvxI1RnRrcj__A/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05, shadow: "0 0 20px rgba(0, 174, 239, 0.4)" }}

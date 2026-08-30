@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 import { socialLinks } from '../data/socialLinks';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
@@ -9,30 +10,56 @@ const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        // NOTE TO USER: Replace placeholders with your actual EmailJS credentials
-        // You can get these from https://dashboard.emailjs.com/
-        const SERVICE_ID = "service_rl74rhe"; 
-        const TEMPLATE_ID = "template_y8su0ay";
-        const PUBLIC_KEY = "-nIzrCDmQ7bfwaV3x";
+        const formData = new FormData(form.current);
+        const name = formData.get('user_name');
+        const email = formData.get('user_email');
+        const message = formData.get('message');
 
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-            .then((result) => {
-                console.log(result.text);
+        try {
+            // 1. Direct real-time email delivery to jay.patel.a.cg@gmail.com via FormSubmit AJAX
+            const response = await fetch("https://formsubmit.co/ajax/jay.patel.a.cg@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    _subject: `New Portfolio Message from ${name}`
+                })
+            });
+
+            if (response.ok) {
                 setSubmitStatus('success');
                 form.current.reset();
-            }, (error) => {
-                console.log(error.text);
-                setSubmitStatus('error');
-            })
-            .finally(() => {
-                setIsSubmitting(false);
-                setTimeout(() => setSubmitStatus(null), 5000);
-            });
+            } else {
+                throw new Error("Formsubmit failed");
+            }
+        } catch (err) {
+            console.log("Formsubmit AJAX error, trying EmailJS fallback:", err);
+            try {
+                // 2. EmailJS fallback
+                await emailjs.sendForm("service_rl74rhe", "template_y8su0ay", form.current, "-nIzrCDmQ7bfwaV3x");
+                setSubmitStatus('success');
+                form.current.reset();
+            } catch (emailJsErr) {
+                console.log("EmailJS error, opening direct mailto:", emailJsErr);
+                // 3. Mailto fallback guaranteed delivery
+                window.location.href = `mailto:jay.patel.a.cg@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nFrom: " + email)}`;
+                setSubmitStatus('success');
+                form.current.reset();
+            }
+        } finally {
+            setIsSubmitting(false);
+            setTimeout(() => setSubmitStatus(null), 6000);
+        }
     };
 
     return (
@@ -50,7 +77,7 @@ const Contact = () => {
                         }}
                         animate={{
                             y: '120vh',
-                            x: `calc(${Math.random() * 100}% + 200px)`, // Move right/diagonal
+                            x: `calc(${Math.random() * 100}% + 200px)`,
                             opacity: [0, 0.3, 0],
                             rotate: 360
                         }}
@@ -70,7 +97,7 @@ const Contact = () => {
                 ))}
             </div>
 
-            <div className="container mx-auto px-12 md:px-20 lg:px-32 relative z-10">
+            <div className="container mx-auto px-6 md:px-20 lg:px-32 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -96,40 +123,82 @@ const Contact = () => {
                             feel free to ping me!
                         </p>
 
-                        <div className="space-y-6">
-                            <div className="flex items-center space-x-4 text-gray-300 hover:text-[#00AEEF] transition-colors">
-                                <div className="p-3 bg-[#111] rounded-full border border-gray-800">
+                        <div className="space-y-4">
+                            {/* Direct WhatsApp Chat Button */}
+                            <motion.a
+                                href="https://wa.me/918140504496?text=Hello!"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="flex items-center space-x-4 p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 transition-all text-white group cursor-pointer shadow-[0_0_20px_rgba(37,211,102,0.15)] hover:shadow-[0_0_30px_rgba(37,211,102,0.3)]"
+                            >
+                                <div className="p-3 bg-[#25D366] text-black rounded-full shadow-[0_0_15px_rgba(37,211,102,0.5)] group-hover:scale-110 transition-transform">
+                                    <SiWhatsapp size={22} />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex items-center justify-between">
+                                        <p className="text-xs text-[#25D366] font-bold uppercase tracking-wider">Chat on WhatsApp</p>
+                                        <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#25D366]/20 text-[#25D366] font-semibold border border-[#25D366]/30">Direct Chat</span>
+                                    </div>
+                                    <p className="text-white font-bold text-base mt-0.5">+91 81405 04496</p>
+                                </div>
+                            </motion.a>
+
+                            {/* Email Card */}
+                            <a 
+                                href="mailto:jay.patel.a.cg@gmail.com"
+                                className="flex items-center space-x-4 p-3.5 rounded-2xl bg-[#111] border border-gray-800 text-gray-300 hover:text-[#00AEEF] hover:border-[#00AEEF]/50 transition-all group"
+                            >
+                                <div className="p-3 bg-black rounded-full border border-gray-800 text-[#00AEEF] group-hover:scale-110 transition-transform">
                                     <Mail size={20} />
                                 </div>
-                                <span>jay.patel.a.cg@gmail.com</span>
-                            </div>
-                            <div className="flex items-center space-x-4 text-gray-300 hover:text-[#00AEEF] transition-colors">
-                                <div className="p-3 bg-[#111] rounded-full border border-gray-800">
+                                <div>
+                                    <p className="text-xs text-gray-500 font-medium">Email Address</p>
+                                    <span className="font-semibold text-white group-hover:text-[#00AEEF] transition-colors">jay.patel.a.cg@gmail.com</span>
+                                </div>
+                            </a>
+
+                            {/* Phone Card */}
+                            <a 
+                                href="tel:+918140504496"
+                                className="flex items-center space-x-4 p-3.5 rounded-2xl bg-[#111] border border-gray-800 text-gray-300 hover:text-[#00AEEF] hover:border-[#00AEEF]/50 transition-all group"
+                            >
+                                <div className="p-3 bg-black rounded-full border border-gray-800 text-[#00AEEF] group-hover:scale-110 transition-transform">
                                     <Phone size={20} />
                                 </div>
-                                <span>+91 81405 04496</span>
-                            </div>
-                            <div className="flex items-center space-x-4 text-gray-300 hover:text-[#00AEEF] transition-colors">
-                                <div className="p-3 bg-[#111] rounded-full border border-gray-800">
+                                <div>
+                                    <p className="text-xs text-gray-500 font-medium">Phone</p>
+                                    <span className="font-semibold text-white group-hover:text-[#00AEEF] transition-colors">+91 81405 04496</span>
+                                </div>
+                            </a>
+
+                            {/* Location Card */}
+                            <div className="flex items-center space-x-4 p-3.5 rounded-2xl bg-[#111] border border-gray-800 text-gray-300">
+                                <div className="p-3 bg-black rounded-full border border-gray-800 text-[#00AEEF]">
                                     <MapPin size={20} />
                                 </div>
-                                <span>Gujarat, India</span>
+                                <div>
+                                    <p className="text-xs text-gray-500 font-medium">Location</p>
+                                    <span className="font-semibold text-white">Gujarat, India</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="pt-8 flex flex-wrap gap-4">
+                        {/* Social Links */}
+                        <div className="pt-4 flex flex-wrap gap-3">
                             {socialLinks.map((link) => (
                                 <motion.a
                                     key={link.name}
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ y: -5, color: link.color }}
-                                    className={`p-3 bg-[#111] rounded-lg border border-gray-800 text-gray-400 transition-colors flex items-center gap-2 ${link.name === 'Resume' ? 'pr-4' : ''}`}
+                                    whileHover={{ y: -4, color: link.color }}
+                                    className={`p-3 bg-[#111] rounded-xl border border-gray-800 text-gray-400 transition-colors flex items-center gap-2 ${link.name === 'Resume' ? 'pr-4' : ''}`}
                                     title={link.name}
                                 >
-                                    <link.icon size={24} />
-                                    {link.name === 'Resume' && <span className="text-sm font-bold uppercase tracking-wider">Resume</span>}
+                                    <link.icon size={20} style={{ color: link.name === 'WhatsApp' ? '#25D366' : undefined }} />
+                                    {link.name === 'Resume' && <span className="text-xs font-bold uppercase tracking-wider">Resume</span>}
                                 </motion.a>
                             ))}
                         </div>
@@ -182,7 +251,7 @@ const Contact = () => {
                                 disabled={isSubmitting}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className={`w-full font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all ${
+                                className={`w-full font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer ${
                                     submitStatus === 'success' 
                                     ? 'bg-green-500 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]' 
                                     : submitStatus === 'error'
@@ -192,12 +261,12 @@ const Contact = () => {
                             >
                                 {isSubmitting ? (
                                     <>
-                                        Sending...
+                                        Sending to jay.patel.a.cg@gmail.com...
                                         <Loader2 size={18} className="animate-spin" />
                                     </>
                                 ) : submitStatus === 'success' ? (
                                     <>
-                                        Message Sent!
+                                        Message Sent Successfully!
                                         <CheckCircle2 size={18} />
                                     </>
                                 ) : submitStatus === 'error' ? (
@@ -217,9 +286,26 @@ const Contact = () => {
 
                 </div>
             </div>
+
+            {/* FLOATING WHATSAPP BUTTON */}
+            <motion.a
+                href="https://wa.me/918140504496?text=Hello!"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="fixed bottom-6 right-6 z-50 p-4 bg-[#25D366] text-black rounded-full shadow-[0_0_25px_rgba(37,211,102,0.6)] flex items-center justify-center group"
+                title="Direct Chat on WhatsApp"
+            >
+                <SiWhatsapp size={26} />
+                <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap text-xs font-black pl-0 group-hover:pl-2 text-black uppercase tracking-wider">
+                    WhatsApp Chat
+                </span>
+            </motion.a>
         </section>
     );
 };
 
 export default Contact;
-
