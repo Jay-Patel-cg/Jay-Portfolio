@@ -171,17 +171,17 @@ const Hackathon = () => {
         <section 
             id="hackathon" 
             ref={sectionRef}
-            className="relative py-24 flex flex-col justify-center overflow-hidden bg-black min-h-screen"
+            className="relative py-24 flex flex-col justify-center overflow-hidden bg-slate-50 dark:bg-black transition-colors duration-500 min-h-screen"
         >
             {/* Cinematic Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-[#001020] to-black" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-black dark:via-[#001020] dark:to-black" />
             
             {/* Stars & Space Effects */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {[...Array(80)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute bg-white rounded-full"
+                        className="absolute bg-slate-400 dark:bg-white rounded-full"
                         style={{
                             width: Math.random() * 2 + 1 + 'px',
                             height: Math.random() * 2 + 1 + 'px',
@@ -198,15 +198,15 @@ const Hackathon = () => {
             </div>
 
             {/* Parallax Planets */}
-            <motion.div style={{ y: yPlanets }} className="absolute inset-0 z-0">
+            <motion.div style={{ y: yPlanets }} className="absolute inset-0 z-0 opacity-70 dark:opacity-100">
                 <Planet color="#00AEEF" size="150px" top="10%" left="5%" delay={0} duration={12} />
                 <Planet color="#5B21B6" size="80px" top="60%" left="80%" delay={2} duration={15} />
                 <Planet color="#F7DF1E" size="40px" top="20%" left="75%" delay={4} duration={8} />
             </motion.div>
             
             {/* Orbit paths (Subtle) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-white/5 rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-slate-300/30 dark:border-white/5 rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-slate-300/30 dark:border-white/5 rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-6 lg:px-24 relative z-10 space-y-12">
                 
@@ -232,7 +232,7 @@ const Hackathon = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter"
+                        className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight tracking-tighter"
                     >
                         Innovation & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AEEF] to-purple-500">Hackathons</span>
                     </motion.h2>
@@ -244,8 +244,8 @@ const Hackathon = () => {
                     onMouseEnter={() => setIsAutoPlaying(false)}
                     onMouseLeave={() => setIsAutoPlaying(true)}
                 >
-                    <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50 via-slate-50/80 dark:from-black dark:via-black/80 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-50 via-slate-50/80 dark:from-black dark:via-black/80 to-transparent z-20 pointer-events-none" />
 
                     <motion.div
                         className="flex space-x-6 w-max"
@@ -269,10 +269,10 @@ const Hackathon = () => {
                                     className={`flex items-center gap-4 px-6 py-4 rounded-2xl cursor-pointer transition-all duration-300 min-w-[300px] border backdrop-blur-xl ${
                                         isActive
                                             ? 'bg-[#00AEEF]/20 border-[#00AEEF] shadow-[0_0_30px_rgba(0,174,239,0.5)] scale-105'
-                                            : 'bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/10'
+                                            : 'bg-white/80 dark:bg-white/5 border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/30 hover:bg-white dark:hover:bg-white/10 shadow-sm dark:shadow-none'
                                     }`}
                                 >
-                                    <div className="w-14 h-14 rounded-xl overflow-hidden border border-white/20 flex-shrink-0 shadow-lg relative">
+                                    <div className="w-14 h-14 rounded-xl overflow-hidden border border-slate-200 dark:border-white/20 flex-shrink-0 shadow-lg relative">
                                         <img src={hackathon.image} alt={hackathon.title} className="w-full h-full object-cover" />
                                         {isActive && (
                                             <div className="absolute inset-0 bg-[#00AEEF]/30 backdrop-blur-[1px]" />
@@ -280,13 +280,13 @@ const Hackathon = () => {
                                     </div>
                                     <div className="space-y-1">
                                         <div className="flex items-center gap-2">
-                                            <h4 className="text-white font-bold text-sm whitespace-nowrap">{hackathon.title}</h4>
+                                            <h4 className="text-slate-900 dark:text-white font-bold text-sm whitespace-nowrap">{hackathon.title}</h4>
                                             {isActive && (
                                                 <span className="w-2 h-2 rounded-full bg-[#00AEEF] animate-ping" />
                                             )}
                                         </div>
                                         <p className="text-[#00AEEF] text-xs font-semibold">{hackathon.badge}</p>
-                                        <p className="text-gray-400 text-[10px]">{hackathon.dates}</p>
+                                        <p className="text-slate-500 dark:text-gray-400 text-[10px]">{hackathon.dates}</p>
                                     </div>
                                 </motion.div>
                             );
@@ -302,7 +302,7 @@ const Hackathon = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 60 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 bg-gradient-to-r from-white/[0.03] to-transparent p-8 md:p-12 rounded-[40px] border border-white/10 backdrop-blur-2xl relative"
+                        className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 bg-gradient-to-r from-white/90 to-slate-100/80 dark:from-white/[0.03] dark:to-transparent p-8 md:p-12 rounded-[40px] border border-slate-200 dark:border-white/10 backdrop-blur-2xl relative shadow-lg dark:shadow-none"
                     >
                         {/* Active Accent Glow */}
                         <div className="absolute top-0 left-0 w-32 h-1 bg-gradient-to-r from-[#00AEEF] to-purple-500 rounded-full" />
@@ -312,18 +312,18 @@ const Hackathon = () => {
                             
                             {/* Metadata Badges */}
                             <div className="flex flex-wrap items-center gap-3">
-                                <div className="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 text-xs font-medium">
+                                <div className="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-300 text-xs font-medium">
                                     <Calendar size={14} className="text-[#00AEEF]" />
                                     <span>{activeHackathon.dates}</span>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 text-xs font-medium">
-                                    <MapPin size={14} className="text-purple-400" />
+                                <div className="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-300 text-xs font-medium">
+                                    <MapPin size={14} className="text-purple-600 dark:text-purple-400" />
                                     <span>{activeHackathon.venue}</span>
                                 </div>
                             </div>
                             
                             <div className="space-y-3">
-                                <h3 className="text-5xl lg:text-7xl font-black text-white leading-none tracking-tighter">
+                                <h3 className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-none tracking-tighter">
                                     {activeHackathon.highlightTitle} <br />
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AEEF] to-purple-500">
                                         {activeHackathon.highlightYear}
@@ -334,7 +334,7 @@ const Hackathon = () => {
                                 </p>
                             </div>
 
-                            <p className="text-gray-300 text-base lg:text-lg leading-relaxed font-light">
+                            <p className="text-slate-600 dark:text-gray-300 text-base lg:text-lg leading-relaxed font-light">
                                 {activeHackathon.description}
                             </p>
 
@@ -343,15 +343,15 @@ const Hackathon = () => {
                                 {activeHackathon.highlights.map((feature, i) => (
                                     <motion.div 
                                         key={i}
-                                        whileHover={{ y: -4, backgroundColor: "rgba(255,255,255,0.08)" }}
-                                        className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-sm transition-all"
+                                        whileHover={{ y: -4, backgroundColor: "rgba(0,174,239,0.08)" }}
+                                        className="flex items-center gap-4 bg-slate-100/80 dark:bg-white/5 p-4 rounded-2xl border border-slate-200 dark:border-white/10 backdrop-blur-sm transition-all"
                                     >
                                         <div className="p-3 bg-[#00AEEF]/20 rounded-xl text-[#00AEEF] flex-shrink-0">
                                             <feature.icon size={20} />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold text-sm">{feature.title}</h4>
-                                            <p className="text-gray-400 text-xs mt-0.5">{feature.desc}</p>
+                                            <h4 className="text-slate-900 dark:text-white font-bold text-sm">{feature.title}</h4>
+                                            <p className="text-slate-500 dark:text-gray-400 text-xs mt-0.5">{feature.desc}</p>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -376,9 +376,9 @@ const Hackathon = () => {
                                 <motion.div 
                                     whileHover={{ rotateY: 3, rotateX: -3 }}
                                     transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                                    className="relative bg-[#0A0A0A] p-3 rounded-[32px] border border-white/15 shadow-2xl overflow-hidden"
+                                    className="relative bg-white dark:bg-[#0A0A0A] p-3 rounded-[32px] border border-slate-200 dark:border-white/15 shadow-2xl overflow-hidden"
                                 >
-                                    <div className="relative w-full h-[450px] sm:h-[550px] lg:h-[640px] rounded-[28px] overflow-hidden bg-black/90 flex items-center justify-center p-3">
+                                    <div className="relative w-full h-[450px] sm:h-[550px] lg:h-[640px] rounded-[28px] overflow-hidden bg-slate-100 dark:bg-black/90 flex items-center justify-center p-3">
                                         {/* Ambient blurred backdrop of image */}
                                         <img 
                                             src={activeHackathon.image} 
@@ -394,12 +394,12 @@ const Hackathon = () => {
                                         />
                                         
                                         {/* Image Overlay / Glass Badge */}
-                                        <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 md:p-8 flex items-end">
-                                            <div className="px-5 py-3.5 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl w-full">
+                                        <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent dark:from-black/90 dark:via-black/40 p-6 md:p-8 flex items-end">
+                                            <div className="px-5 py-3.5 bg-white/80 dark:bg-white/10 backdrop-blur-2xl border border-slate-200 dark:border-white/20 rounded-2xl w-full">
                                                 <div className="flex items-center justify-between">
                                                     <div>
                                                         <p className="text-[#00AEEF] text-[10px] font-black uppercase tracking-widest mb-0.5">Event Venue</p>
-                                                        <p className="text-white font-bold text-sm md:text-base">{activeHackathon.venue}</p>
+                                                        <p className="text-slate-900 dark:text-white font-bold text-sm md:text-base">{activeHackathon.venue}</p>
                                                     </div>
                                                     <Stars size={22} className="text-[#00AEEF] animate-pulse" />
                                                 </div>
@@ -416,9 +416,10 @@ const Hackathon = () => {
             </div>
             
             {/* Section Transition */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-50 dark:from-black to-transparent pointer-events-none" />
         </section>
     );
 };
 
 export default Hackathon;
+

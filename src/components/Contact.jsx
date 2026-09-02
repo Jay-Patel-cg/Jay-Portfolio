@@ -63,7 +63,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="min-h-screen py-20 relative bg-black overflow-hidden flex items-center">
+        <section id="contact" className="min-h-screen py-20 relative bg-slate-50 dark:bg-black transition-colors duration-500 overflow-hidden flex items-center">
 
             {/* 1. Diagonal Falling White Shapes */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -87,7 +87,7 @@ const Contact = () => {
                             ease: 'linear',
                             delay: Math.random() * 5
                         }}
-                        className="absolute bg-white/10 rounded-[30%] backdrop-blur-sm"
+                        className="absolute bg-slate-400/20 dark:bg-white/10 rounded-[30%] backdrop-blur-sm"
                         style={{
                             width: Math.random() * 100 + 50 + "px",
                             height: Math.random() * 100 + 50 + "px",
@@ -102,7 +102,7 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-4xl font-bold mb-16 text-center text-white"
+                    className="text-4xl font-bold mb-16 text-center text-slate-900 dark:text-white"
                 >
                     Get in <span className="text-[#00AEEF]">Touch</span>
                 </motion.h2>
@@ -116,8 +116,8 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="space-y-8"
                     >
-                        <h3 className="text-3xl font-bold text-white">Let's build something <br /> <span className="text-[#00AEEF]">amazing together.</span></h3>
-                        <p className="text-gray-400 leading-relaxed">
+                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Let's build something <br /> <span className="text-[#00AEEF]">amazing together.</span></h3>
+                        <p className="text-slate-600 dark:text-gray-400 leading-relaxed">
                             I'm currently available for freelance work and internships.
                             If you have a project that needs some creative touch,
                             feel free to ping me!
@@ -131,7 +131,7 @@ const Contact = () => {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="flex items-center space-x-4 p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 transition-all text-white group cursor-pointer shadow-[0_0_20px_rgba(37,211,102,0.15)] hover:shadow-[0_0_30px_rgba(37,211,102,0.3)]"
+                                className="flex items-center space-x-4 p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 transition-all text-slate-900 dark:text-white group cursor-pointer shadow-[0_0_20px_rgba(37,211,102,0.15)] hover:shadow-[0_0_30px_rgba(37,211,102,0.3)]"
                             >
                                 <div className="p-3 bg-[#25D366] text-black rounded-full shadow-[0_0_15px_rgba(37,211,102,0.5)] group-hover:scale-110 transition-transform">
                                     <SiWhatsapp size={22} />
@@ -141,46 +141,46 @@ const Contact = () => {
                                         <p className="text-xs text-[#25D366] font-bold uppercase tracking-wider">Chat on WhatsApp</p>
                                         <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#25D366]/20 text-[#25D366] font-semibold border border-[#25D366]/30">Direct Chat</span>
                                     </div>
-                                    <p className="text-white font-bold text-base mt-0.5">+91 81405 04496</p>
+                                    <p className="text-slate-900 dark:text-white font-bold text-base mt-0.5">+91 81405 04496</p>
                                 </div>
                             </motion.a>
 
                             {/* Email Card */}
                             <a 
                                 href="mailto:jay.patel.a.cg@gmail.com"
-                                className="flex items-center space-x-4 p-3.5 rounded-2xl bg-[#111] border border-gray-800 text-gray-300 hover:text-[#00AEEF] hover:border-[#00AEEF]/50 transition-all group"
+                                className="flex items-center space-x-4 p-3.5 rounded-2xl bg-white dark:bg-[#111] border border-slate-200 dark:border-gray-800 text-slate-700 dark:text-gray-300 hover:text-[#00AEEF] dark:hover:text-[#00AEEF] hover:border-[#00AEEF]/50 transition-all group shadow-sm dark:shadow-none"
                             >
-                                <div className="p-3 bg-black rounded-full border border-gray-800 text-[#00AEEF] group-hover:scale-110 transition-transform">
+                                <div className="p-3 bg-slate-100 dark:bg-black rounded-full border border-slate-200 dark:border-gray-800 text-[#00AEEF] group-hover:scale-110 transition-transform">
                                     <Mail size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-500 font-medium">Email Address</p>
-                                    <span className="font-semibold text-white group-hover:text-[#00AEEF] transition-colors">jay.patel.a.cg@gmail.com</span>
+                                    <p className="text-xs text-slate-400 dark:text-gray-500 font-medium">Email Address</p>
+                                    <span className="font-semibold text-slate-900 dark:text-white group-hover:text-[#00AEEF] transition-colors">jay.patel.a.cg@gmail.com</span>
                                 </div>
                             </a>
 
                             {/* Phone Card */}
                             <a 
                                 href="tel:+918140504496"
-                                className="flex items-center space-x-4 p-3.5 rounded-2xl bg-[#111] border border-gray-800 text-gray-300 hover:text-[#00AEEF] hover:border-[#00AEEF]/50 transition-all group"
+                                className="flex items-center space-x-4 p-3.5 rounded-2xl bg-white dark:bg-[#111] border border-slate-200 dark:border-gray-800 text-slate-700 dark:text-gray-300 hover:text-[#00AEEF] dark:hover:text-[#00AEEF] hover:border-[#00AEEF]/50 transition-all group shadow-sm dark:shadow-none"
                             >
-                                <div className="p-3 bg-black rounded-full border border-gray-800 text-[#00AEEF] group-hover:scale-110 transition-transform">
+                                <div className="p-3 bg-slate-100 dark:bg-black rounded-full border border-slate-200 dark:border-gray-800 text-[#00AEEF] group-hover:scale-110 transition-transform">
                                     <Phone size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-500 font-medium">Phone</p>
-                                    <span className="font-semibold text-white group-hover:text-[#00AEEF] transition-colors">+91 81405 04496</span>
+                                    <p className="text-xs text-slate-400 dark:text-gray-500 font-medium">Phone</p>
+                                    <span className="font-semibold text-slate-900 dark:text-white group-hover:text-[#00AEEF] transition-colors">+91 81405 04496</span>
                                 </div>
                             </a>
 
                             {/* Location Card */}
-                            <div className="flex items-center space-x-4 p-3.5 rounded-2xl bg-[#111] border border-gray-800 text-gray-300">
-                                <div className="p-3 bg-black rounded-full border border-gray-800 text-[#00AEEF]">
+                            <div className="flex items-center space-x-4 p-3.5 rounded-2xl bg-white dark:bg-[#111] border border-slate-200 dark:border-gray-800 text-slate-700 dark:text-gray-300 shadow-sm dark:shadow-none">
+                                <div className="p-3 bg-slate-100 dark:bg-black rounded-full border border-slate-200 dark:border-gray-800 text-[#00AEEF]">
                                     <MapPin size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-500 font-medium">Location</p>
-                                    <span className="font-semibold text-white">Gujarat, India</span>
+                                    <p className="text-xs text-slate-400 dark:text-gray-500 font-medium">Location</p>
+                                    <span className="font-semibold text-slate-900 dark:text-white">Gujarat, India</span>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +194,7 @@ const Contact = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ y: -4, color: link.color }}
-                                    className={`p-3 bg-[#111] rounded-xl border border-gray-800 text-gray-400 transition-colors flex items-center gap-2 ${link.name === 'Resume' ? 'pr-4' : ''}`}
+                                    className={`p-3 bg-white dark:bg-[#111] rounded-xl border border-slate-200 dark:border-gray-800 text-slate-600 dark:text-gray-400 transition-colors flex items-center gap-2 shadow-sm dark:shadow-none ${link.name === 'Resume' ? 'pr-4' : ''}`}
                                     title={link.name}
                                 >
                                     <link.icon size={20} style={{ color: link.name === 'WhatsApp' ? '#25D366' : undefined }} />
@@ -209,40 +209,40 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="bg-[#111]/80 backdrop-blur-md p-8 rounded-3xl border border-gray-800 shadow-2xl relative overflow-hidden group"
+                        className="bg-white/90 dark:bg-[#111]/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200 dark:border-gray-800 shadow-xl relative overflow-hidden group"
                     >
                         {/* Form Glow Effect */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-[#00AEEF]/10 rounded-full blur-3xl -z-10 transition-all duration-500 group-hover:bg-[#00AEEF]/20" />
 
                         <form ref={form} onSubmit={sendEmail} className="space-y-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-400 ml-1">Your Name</label>
+                                <label className="text-sm font-medium text-slate-600 dark:text-gray-400 ml-1">Your Name</label>
                                 <input
                                     type="text"
                                     name="user_name"
                                     required
                                     placeholder="John Doe"
-                                    className="w-full bg-black/50 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00AEEF] focus:ring-1 focus:ring-[#00AEEF] transition-all"
+                                    className="w-full bg-slate-50 dark:bg-black/50 border border-slate-300 dark:border-gray-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-[#00AEEF] focus:ring-1 focus:ring-[#00AEEF] transition-all"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-400 ml-1">Email Address</label>
+                                <label className="text-sm font-medium text-slate-600 dark:text-gray-400 ml-1">Email Address</label>
                                 <input
                                     type="email"
                                     name="user_email"
                                     required
                                     placeholder="john@example.com"
-                                    className="w-full bg-black/50 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00AEEF] focus:ring-1 focus:ring-[#00AEEF] transition-all"
+                                    className="w-full bg-slate-50 dark:bg-black/50 border border-slate-300 dark:border-gray-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-[#00AEEF] focus:ring-1 focus:ring-[#00AEEF] transition-all"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-400 ml-1">Message</label>
+                                <label className="text-sm font-medium text-slate-600 dark:text-gray-400 ml-1">Message</label>
                                 <textarea
                                     name="message"
                                     required
                                     rows="4"
                                     placeholder="Tell me about your project..."
-                                    className="w-full bg-black/50 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00AEEF] focus:ring-1 focus:ring-[#00AEEF] transition-all resize-none"
+                                    className="w-full bg-slate-50 dark:bg-black/50 border border-slate-300 dark:border-gray-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-[#00AEEF] focus:ring-1 focus:ring-[#00AEEF] transition-all resize-none"
                                 />
                             </div>
 

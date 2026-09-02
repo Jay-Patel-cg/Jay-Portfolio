@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen text-white overflow-hidden">
+    <div className="bg-slate-50 dark:bg-black min-h-screen text-slate-900 dark:text-white transition-colors duration-500 overflow-hidden">
       {/* Navbar appears after intro starts completing */}
       {introComplete && <Navbar />}
 

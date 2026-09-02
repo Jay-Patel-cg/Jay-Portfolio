@@ -53,17 +53,17 @@ const Skills = () => {
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
     return (
-        <section id="skills" ref={containerRef} className="min-h-screen relative bg-black overflow-hidden py-20">
+        <section id="skills" ref={containerRef} className="min-h-screen relative bg-slate-50 dark:bg-black transition-colors duration-500 overflow-hidden py-20">
 
             {/* 1. Animated Blue Grid Lines */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,174,239,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(0,174,239,0.25)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-grid-pan pointer-events-none" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,174,239,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(0,174,239,0.15)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(0,174,239,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(0,174,239,0.25)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-grid-pan pointer-events-none" />
 
             {/* 2. Star Particle Background */}
             <div className="absolute inset-0 pointer-events-none">
                 {[...Array(50)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute bg-white rounded-full"
+                        className="absolute bg-slate-400 dark:bg-white rounded-full"
                         initial={{
                             top: Math.random() * 100 + "%",
                             left: Math.random() * 100 + "%",
@@ -93,7 +93,7 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-bold mb-20 text-center"
+                    className="text-4xl md:text-5xl font-bold mb-20 text-center text-slate-900 dark:text-white"
                 >
                     My <span className="text-[#00AEEF]">Skills</span> & Journey
                 </motion.h2>
@@ -102,12 +102,12 @@ const Skills = () => {
 
                     {/* LEFT: Journey / Timeline */}
                     <div>
-                        <h3 className="text-2xl font-bold mb-10 text-white flex items-center gap-2">
+                        <h3 className="text-2xl font-bold mb-10 text-slate-900 dark:text-white flex items-center gap-2">
                             <span className="w-8 h-1 bg-[#00AEEF] rounded-full"></span>
                             My Journey
                         </h3>
 
-                        <div className="relative border-l-2 border-gray-800 ml-4 space-y-12">
+                        <div className="relative border-l-2 border-slate-300 dark:border-gray-800 ml-4 space-y-12">
                             {[
                                 { role: 'Frontend Development', year: '2024', desc: 'Started with HTML, CSS, & Component Logic.' },
                                 { role: 'Backend Development', year: '2025', desc: 'Mastered Node.js, Express & Database Designs.' },
@@ -122,11 +122,11 @@ const Skills = () => {
                                     className="relative pl-8 group"
                                 >
                                     {/* Timeline Dot */}
-                                    <div className="absolute -left-[9px] top-0 w-4 h-4 bg-black border-2 border-[#00AEEF] rounded-full group-hover:scale-125 group-hover:bg-[#00AEEF] transition-all duration-300 shadow-[0_0_10px_#00AEEF]" />
+                                    <div className="absolute -left-[9px] top-0 w-4 h-4 bg-slate-100 dark:bg-black border-2 border-[#00AEEF] rounded-full group-hover:scale-125 group-hover:bg-[#00AEEF] transition-all duration-300 shadow-[0_0_10px_#00AEEF]" />
 
                                     <span className="text-[#00AEEF] font-mono text-sm tracking-widest">{item.year}</span>
-                                    <h4 className="text-xl font-bold text-white mt-1 group-hover:text-[#00AEEF] transition-colors">{item.role}</h4>
-                                    <p className="text-gray-400 mt-2 text-sm leading-relaxed">{item.desc}</p>
+                                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mt-1 group-hover:text-[#00AEEF] transition-colors">{item.role}</h4>
+                                    <p className="text-slate-600 dark:text-gray-400 mt-2 text-sm leading-relaxed">{item.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -136,14 +136,14 @@ const Skills = () => {
                     <div className="relative overflow-hidden w-full space-y-12 mask-linear">
                         {Object.entries(skillsData).map(([category, skills], catIndex) => (
                             <div key={category} className="relative">
-                                <h3 className="text-xl font-bold text-gray-400 capitalize mb-6 px-4 border-l-4 border-[#00AEEF] inline-block">
+                                <h3 className="text-xl font-bold text-slate-600 dark:text-gray-400 capitalize mb-6 px-4 border-l-4 border-[#00AEEF] inline-block">
                                     {category}
                                 </h3>
 
                                 {/* Marquee Row */}
                                 <div className="flex overflow-hidden relative w-full group">
-                                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10" />
-                                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10" />
+                                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 dark:from-black to-transparent z-10 pointer-events-none" />
+                                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 dark:from-black to-transparent z-10 pointer-events-none" />
 
                                     <motion.div
                                         className="flex space-x-6 w-max"
@@ -167,13 +167,13 @@ const Skills = () => {
                                                         borderColor: "#00AEEF",
                                                         boxShadow: "0 0 15px rgba(0, 174, 239, 0.4)"
                                                     }}
-                                                    className="flex items-center gap-3 px-6 py-3 bg-[#111] border border-gray-800 rounded-full cursor-pointer transition-all min-w-max group"
+                                                    className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-[#111] border border-slate-200 dark:border-gray-800 rounded-full cursor-pointer transition-all min-w-max group shadow-sm dark:shadow-none"
                                                 >
                                                     <IconComponent
                                                         className="text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
                                                         style={{ color: skill.color }}
                                                     />
-                                                    <span className="text-sm font-bold text-gray-300 whitespace-nowrap">{skill.name}</span>
+                                                    <span className="text-sm font-bold text-slate-800 dark:text-gray-300 whitespace-nowrap">{skill.name}</span>
                                                 </motion.div>
                                             );
                                         })}

@@ -74,7 +74,7 @@ const Hero = ({ onIntroComplete }) => {
     }, []);
 
     return (
-        <section id="home" className="min-h-screen bg-black text-white relative flex items-center justify-center overflow-hidden px-6">
+        <section id="home" className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white transition-colors duration-500 relative flex items-center justify-center overflow-hidden px-6">
 
             {/* 0. Drifting Stars Background (Left to Right) */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -89,7 +89,7 @@ const Hero = ({ onIntroComplete }) => {
                             ease: "linear",
                             delay: star.delay
                         }}
-                        className="absolute w-1 h-1 bg-white rounded-full shadow-[0_0_4px_#fff]"
+                        className="absolute w-1 h-1 bg-slate-400 dark:bg-white rounded-full shadow-[0_0_4px_rgba(0,174,239,0.5)] dark:shadow-[0_0_4px_#fff]"
                         style={{ top: star.top }}
                     />
                 ))}
@@ -124,14 +124,14 @@ const Hero = ({ onIntroComplete }) => {
 
                 {/* Left Side: Text Content */}
                 <div className="space-y-6 md:pl-12 lg:pl-20 w-full text-left">
-                    <h2 className="text-2xl md:text-3xl font-light text-gray-300 flex items-center gap-3">
+                    <h2 className="text-2xl md:text-3xl font-light text-slate-600 dark:text-gray-300 flex items-center gap-3">
                         Heyy <motion.span
                             animate={{ rotate: [0, 20, -20, 0] }}
                             transition={{ duration: 0.5, delay: 3, repeat: Infinity, repeatDelay: 1 }}
                             className="inline-block"
                         >👋</motion.span> This is
                     </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+                    <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white tracking-tight">
                         <span className="text-[#00AEEF]">Jay</span> Patel
                     </h1>
 
@@ -140,7 +140,7 @@ const Hero = ({ onIntroComplete }) => {
                         {displayedText}<span className="animate-pulse">|</span>
                     </p>
 
-                    <p className="text-lg text-gray-400 max-w-xl leading-relaxed">
+                    <p className="text-lg text-slate-600 dark:text-gray-400 max-w-xl leading-relaxed">
                         I am a B.Tech student at Coding Gita, passionate about building scalable web applications.
                         With expertise in both **Frontend and Backend** development, I craft seamless user experiences
                         and robust server-side architectures using modern technologies like React, Node.js, and Cloud services.
@@ -155,7 +155,7 @@ const Hero = ({ onIntroComplete }) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.1, rotate: link.hoverRotate, borderColor: link.color }}
-                                    className={`p-3 rounded-full border border-transparent transition-all text-white hover:text-[${link.color}] ${index === 0 ? 'bg-[#1A1A1A]' : 'bg-[#111]'}`}
+                                    className={`p-3 rounded-full border border-slate-200 dark:border-transparent transition-all text-slate-800 dark:text-white hover:text-[${link.color}] ${index === 0 ? 'bg-slate-200 dark:bg-[#1A1A1A]' : 'bg-slate-100 dark:bg-[#111]'}`}
                                     title={link.name}
                                 >
                                     <link.icon size={20} />
@@ -196,7 +196,7 @@ const Hero = ({ onIntroComplete }) => {
                         />
 
                         {/* 3. Image Container with Increased Border Radius */}
-                        <div className="relative h-full w-full bg-black rounded-[2.5rem] overflow-hidden border-2 border-gray-800 z-10">
+                        <div className="relative h-full w-full bg-white dark:bg-black rounded-[2.5rem] overflow-hidden border-2 border-slate-200 dark:border-gray-800 z-10 shadow-xl">
                             <img
                                 src="https://rubber-gold-91bco2ahm3.edgeone.app/ChatGPT%20Image%20Jan%201,%202026,%2002_17_48%20PM.png"
                                 alt="Jay Patel - Software Developer Portfolio"

@@ -92,7 +92,7 @@ const CustomCursor = () => {
             {/* Default Outer Circle (Follower) */}
             {!isHovering && (
                 <motion.div
-                    className="absolute w-8 h-8 border border-white/20 rounded-full"
+                    className="absolute w-8 h-8 border border-slate-400/40 dark:border-white/20 rounded-full"
                     animate={{
                         x: mousePosition.x - 16,
                         y: mousePosition.y - 16,

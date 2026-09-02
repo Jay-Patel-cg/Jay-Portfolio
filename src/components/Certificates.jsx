@@ -138,12 +138,12 @@ const Tooltip = ({ content, visible, position }) => (
                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                className="fixed z-[100] pointer-events-none px-4 py-3 bg-[#111] border border-white/10 rounded-xl shadow-2xl backdrop-blur-xl w-64"
+                className="fixed z-[100] pointer-events-none px-4 py-3 bg-white dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl backdrop-blur-xl w-64"
                 style={{ left: position.x + 15, top: position.y + 15 }}
             >
-                <h4 className="text-white font-bold mb-1">{content.title}</h4>
+                <h4 className="text-slate-900 dark:text-white font-bold mb-1">{content.title}</h4>
                 <p className="text-[#00AEEF] text-xs font-black uppercase tracking-widest mb-2">{content.issuer}</p>
-                <p className="text-gray-400 text-xs leading-relaxed">{content.description}</p>
+                <p className="text-slate-600 dark:text-gray-400 text-xs leading-relaxed">{content.description}</p>
             </motion.div>
         )}
     </AnimatePresence>
@@ -179,7 +179,7 @@ const Certificates = () => {
     };
 
     return (
-        <section id="certificates" className="min-h-screen py-32 relative bg-black overflow-hidden flex flex-col justify-center">
+        <section id="certificates" className="min-h-screen py-32 relative bg-slate-50 dark:bg-black transition-colors duration-500 overflow-hidden flex flex-col justify-center">
             <MatrixRain />
             
             <Tooltip visible={tooltip.visible} content={tooltip.content} position={tooltip.position} />
@@ -189,7 +189,7 @@ const Certificates = () => {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-black text-white"
+                        className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white"
                     >
                         Certificates <span className="text-[#00AEEF]">Showcase</span>
                     </motion.h2>
@@ -213,7 +213,7 @@ const Certificates = () => {
                                 exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
                                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                                 onMouseMove={(e) => handleMouseMove(e, certificates[currentIndex])}
-                                className="bg-[#0A0A0A] rounded-[40px] overflow-hidden border border-white/10 shadow-[0_0_100px_-20px_rgba(0,174,239,0.1)] relative"
+                                className="bg-white dark:bg-[#0A0A0A] rounded-[40px] overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg dark:shadow-[0_0_100px_-20px_rgba(0,174,239,0.1)] relative"
                             >
                                 <div className="flex flex-col lg:flex-row min-h-[500px]">
                                     {/* Content Panel */}
@@ -224,22 +224,22 @@ const Certificates = () => {
                                             </span>
                                         </div>
                                         
-                                        <h3 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-[1.05]">
+                                        <h3 className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 leading-[1.05]">
                                             {certificates[currentIndex].title}
                                         </h3>
                                         
-                                        <p className="text-gray-400 text-xl mb-12 leading-relaxed max-w-2xl font-medium">
+                                        <p className="text-slate-600 dark:text-gray-400 text-xl mb-12 leading-relaxed max-w-2xl font-medium">
                                             {certificates[currentIndex].description}
                                         </p>
 
                                         <div className="flex items-center gap-6 mb-12">
                                             <div className="flex flex-col">
-                                                <span className="text-gray-600 text-xs font-black uppercase tracking-widest mb-2">Issued By</span>
-                                                <span className="text-white text-xl font-bold">{certificates[currentIndex].issuer}</span>
+                                                <span className="text-slate-400 dark:text-gray-600 text-xs font-black uppercase tracking-widest mb-2">Issued By</span>
+                                                <span className="text-slate-900 dark:text-white text-xl font-bold">{certificates[currentIndex].issuer}</span>
                                             </div>
-                                            <div className="w-px h-12 bg-white/10" />
+                                            <div className="w-px h-12 bg-slate-200 dark:bg-white/10" />
                                             <div className="flex flex-col">
-                                                <span className="text-gray-600 text-xs font-black uppercase tracking-widest mb-2">Completion</span>
+                                                <span className="text-slate-400 dark:text-gray-600 text-xs font-black uppercase tracking-widest mb-2">Completion</span>
                                                 <span className="text-[#00AEEF] text-xl font-bold">Verified ✅</span>
                                             </div>
                                         </div>
@@ -258,7 +258,7 @@ const Certificates = () => {
                                     </div>
 
                                     {/* Visual Panel - Macbook Mockup Container */}
-                                    <div className="lg:w-[55%] bg-[#080808] relative flex items-center justify-center p-6 overflow-hidden">
+                                    <div className="lg:w-[55%] bg-slate-100 dark:bg-[#080808] relative flex items-center justify-center p-6 overflow-hidden">
                                         <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/5 to-transparent" />
                                         
                                         <MacbookMockup>
@@ -269,7 +269,7 @@ const Certificates = () => {
                                                     animate={{ opacity: 1, scale: 1, blur: '0px' }}
                                                     exit={{ opacity: 0, scale: 0.9, blur: '10px' }}
                                                     transition={{ duration: 0.8, ease: "easeOut" }}
-                                                    className="w-full h-full bg-[#050505] flex items-center justify-center p-2"
+                                                    className="w-full h-full bg-slate-200 dark:bg-[#050505] flex items-center justify-center p-2"
                                                 >
                                                     <img 
                                                         src={certificates[currentIndex].image} 
@@ -299,18 +299,18 @@ const Certificates = () => {
 
                         {/* Arrows */}
                         <div className="absolute top-1/2 -translate-y-1/2 -left-6 lg:-left-12 flex gap-4 flex-col">
-                            <button onClick={prevSlide} className="p-4 bg-white/5 hover:bg-[#00AEEF] text-white hover:text-black rounded-full border border-white/10 backdrop-blur-md transition-all">
+                            <button onClick={prevSlide} className="p-4 bg-white/80 dark:bg-white/5 hover:bg-[#00AEEF] text-slate-800 dark:text-white hover:text-black rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md transition-all shadow-md">
                                 <ChevronLeft size={24} strokeWidth={3} />
                             </button>
                         </div>
                         <div className="absolute top-1/2 -translate-y-1/2 -right-6 lg:-right-12">
-                            <button onClick={nextSlide} className="p-4 bg-white/5 hover:bg-[#00AEEF] text-white hover:text-black rounded-full border border-white/10 backdrop-blur-md transition-all">
+                            <button onClick={nextSlide} className="p-4 bg-white/80 dark:bg-white/5 hover:bg-[#00AEEF] text-slate-800 dark:text-white hover:text-black rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md transition-all shadow-md">
                                 <ChevronRight size={24} strokeWidth={3} />
                             </button>
                         </div>
 
                         {/* Progress Bar Container */}
-                        <div className="absolute bottom-0 left-0 w-full h-1.5 bg-white/5 overflow-hidden">
+                        <div className="absolute bottom-0 left-0 w-full h-1.5 bg-slate-200 dark:bg-white/5 overflow-hidden">
                             <motion.div
                                 key={currentIndex + isPaused}
                                 initial={{ width: "0%" }}
@@ -332,21 +332,21 @@ const Certificates = () => {
                                 onMouseMove={(e) => handleMouseMove(e, cert)}
                                 whileHover={{ y: -5 }}
                                 className={`relative p-1 rounded-2xl transition-all duration-500 ${
-                                    currentIndex === idx ? 'bg-[#00AEEF] shadow-[0_10px_30px_rgba(0,174,239,0.3)]' : 'bg-white/5 hover:bg-white/10'
+                                    currentIndex === idx ? 'bg-[#00AEEF] shadow-[0_10px_30px_rgba(0,174,239,0.3)]' : 'bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-transparent hover:bg-slate-100 dark:hover:bg-white/10'
                                 }`}
                             >
-                                <div className="bg-[#0A0A0A] p-4 pr-8 rounded-[14px] flex items-center gap-4 min-w-[240px]">
-                                    <div className={`p-3 rounded-xl ${currentIndex === idx ? 'bg-[#00AEEF]/10 text-[#00AEEF]' : 'bg-white/5 text-gray-500'}`}>
+                                <div className="bg-white dark:bg-[#0A0A0A] p-4 pr-8 rounded-[14px] flex items-center gap-4 min-w-[240px]">
+                                    <div className={`p-3 rounded-xl ${currentIndex === idx ? 'bg-[#00AEEF]/10 text-[#00AEEF]' : 'bg-slate-100 dark:bg-white/5 text-slate-400 dark:text-gray-500'}`}>
                                         {(() => {
                                             const ThumbIcon = cert.icon;
                                             return <ThumbIcon size={24} strokeWidth={1.5} />;
                                         })()}
                                     </div>
                                     <div className="text-left">
-                                        <p className={`text-sm font-black uppercase tracking-widest ${currentIndex === idx ? 'text-white' : 'text-gray-500'}`}>
+                                        <p className={`text-sm font-black uppercase tracking-widest ${currentIndex === idx ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-gray-500'}`}>
                                             {cert.issuer}
                                         </p>
-                                        <p className="text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis max-w-[140px]">
+                                        <p className="text-slate-900 dark:text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis max-w-[140px]">
                                             {cert.title}
                                         </p>
                                     </div>
@@ -363,11 +363,11 @@ const Certificates = () => {
                 </div>
 
                 {/* Footer Decor */}
-                <div className="mt-32 flex flex-col items-center opacity-20">
+                <div className="mt-32 flex flex-col items-center opacity-40">
                     <p className="text-[#00AEEF] text-[10px] font-black uppercase tracking-[0.5em] mb-4">Interactive Showcase</p>
                     <div className="flex gap-2">
                         {certificates.map((_, i) => (
-                            <div key={i} className={`h-1 rounded-full transition-all duration-500 ${currentIndex === i ? 'w-8 bg-[#00AEEF]' : 'w-2 bg-white/20'}`} />
+                            <div key={i} className={`h-1 rounded-full transition-all duration-500 ${currentIndex === i ? 'w-8 bg-[#00AEEF]' : 'w-2 bg-slate-300 dark:bg-white/20'}`} />
                         ))}
                     </div>
                 </div>
